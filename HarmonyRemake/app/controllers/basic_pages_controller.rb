@@ -4,4 +4,7 @@ class BasicPagesController < ApplicationController
 
   def Our_History
   end
+
+  def Club_Officers
+  end
 end

@@ -10,4 +10,9 @@ class BasicPagesControllerTest < ActionDispatch::IntegrationTest
     get basic_pages_Our_History_url
     assert_response :success
   end
+
+  test "should get Club_Officers" do
+    get basic_pages_Club_Officers_url
+    assert_response :success
+  end
 end
