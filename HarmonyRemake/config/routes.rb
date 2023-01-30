@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sponsors
   get 'basic_pages/Home'
   get 'basic_pages/Our_History'
   get 'basic_pages/Club_Officers'
