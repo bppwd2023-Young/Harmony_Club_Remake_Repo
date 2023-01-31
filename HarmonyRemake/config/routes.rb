@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  resources :photo_albums
   resources :sponsors
   get 'basic_pages/Home'
   get 'basic_pages/Our_History'

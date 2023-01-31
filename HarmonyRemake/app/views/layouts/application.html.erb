@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HarmonyRemake</title>
+    <title>Harmony Club Of Worcester</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "custom" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-     <%= stylesheet_link_tag "custom" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path('https://harmonyclubofworcester.org/assets/hcwLogo-b78312cdba5ec1b95f3c1ea372c49ae8bbc2f1940f53cfc3acda2312efacbc58.png') %>
   </head>
 
   <body class= "bg-primary">
@@ -56,11 +56,12 @@
                         <!-- only show the page if the visible attribute is true -->
                         
                         <!-- change the type of link depending on what the link is supposed to go to -->
-                              <li class="dropdownBoxes"><a class="dropdown-item navbarLink" href="/web/site/our-history">Our History</a></li>
+                               <li class="dropdownBoxes"><%= link_to "Our History", basic_pages_Our_History_path, class: "dropdown-item navbarLink" %> </li>
                         <!-- only show the page if the visible attribute is true -->
                         
                         <!-- change the type of link depending on what the link is supposed to go to -->
-                              <li class="dropdownBoxes"><a class="dropdown-item navbarLink" href="/web/site/club-officers">Club Officers</a></li>
+                              <li class="dropdownBoxes"><%= link_to "Club Officers", basic_pages_Club_Officers_path, class: "dropdown-item navbarLink" %> </li>
+                              
                     </ul>
               </li>
               <li class="nav-item dropdown mx-0 mx-lg-1">
@@ -124,12 +125,15 @@
               <li class="nav-item dropdown mx-0 mx-lg-1">
               <!-- check if the section has more than one page associated with it -->
                     <!-- if only has one page, change the section from a dropdown to a normal link -->
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown navbarLink" href="/web/albums/index">Gallery</a>
+                    
+                        
+                        <%= link_to "Gallery", photo_albums_path, class: "nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown navbarLink" %>
               </li>
               <li class="nav-item dropdown mx-0 mx-lg-1">
               <!-- check if the section has more than one page associated with it -->
                     <!-- if only has one page, change the section from a dropdown to a normal link -->
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown navbarLink" href="/web/sponsors/index">Sponsors</a>
+                        
+                        <%= link_to "Sponsors", sponsors_path, class: "nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown navbarLink" %>
               </li>
               <li class="nav-item dropdown mx-0 mx-lg-1">
               <!-- check if the section has more than one page associated with it -->
@@ -144,7 +148,7 @@
 
           <!-- checks if the user is signed in and whether or not they should have access to the control panel-->
             <!-- show the sign in button if they aren't signed in -->
-              <li class="nav-link navbarDropdown mx-0 mx-lg-1 navbarLink"> <a class="nav-link text-light" href="/auth/site/panel"><img class="acc-button" alt="log in button" src="https://harmonyclubofworcester.org/assets/matchlogin-8cafe86222bb7d4facf82db26597634f9f388440d45ff62123ef50689b506a1e.png"></a> </li>
+               <li class="nav-link navbarDropdown mx-0 mx-lg-1 navbarLink"> <%= link_to image_tag("https://harmonyclubofworcester.org/assets/matchlogin-8cafe86222bb7d4facf82db26597634f9f388440d45ff62123ef50689b506a1e.png"), new_admin_session_path, class: "nav-link text-light acc-button" %> </li>
             
           </ul>
         </div>
@@ -162,6 +166,8 @@
       </symbol>
     </svg>
    <div class="container bg-light topPadding pb-2">
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
     <%= yield %>
    </div>
      <div class="bg-danger text-light">
