@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  resources :photo_albums
   resources :sponsors
+  resources :photos
+  resources :albums
+  resources :events
+  resources :pages
+  resources :sections
+  devise_for :users
   get 'basic_pages/Home'
   get 'basic_pages/Our_History'
   get 'basic_pages/Club_Officers'

@@ -14,9 +14,8 @@ class SponsorsTest < ApplicationSystemTestCase
     visit sponsors_url
     click_on "New sponsor"
 
-    fill_in "Imagelink", with: @sponsor.imageLink
-    fill_in "Link", with: @sponsor.link
     fill_in "Title", with: @sponsor.title
+    fill_in "Website", with: @sponsor.website
     click_on "Create Sponsor"
 
     assert_text "Sponsor was successfully created"
@@ -27,9 +26,8 @@ class SponsorsTest < ApplicationSystemTestCase
     visit sponsor_url(@sponsor)
     click_on "Edit this sponsor", match: :first
 
-    fill_in "Imagelink", with: @sponsor.imageLink
-    fill_in "Link", with: @sponsor.link
     fill_in "Title", with: @sponsor.title
+    fill_in "Website", with: @sponsor.website
     click_on "Update Sponsor"
 
     assert_text "Sponsor was successfully updated"

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  allday: false
+  eventstart: 2023-02-01 13:44:32
+  eventend: 2023-02-01 13:44:32
+  occurence: 1
+  details: MyText
+
+two:
+  title: MyString
+  allday: false
+  eventstart: 2023-02-01 13:44:32
+  eventend: 2023-02-01 13:44:32
+  occurence: 1
+  details: MyText

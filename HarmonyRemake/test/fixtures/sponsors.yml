@@ -2,10 +2,8 @@
 
 one:
   title: MyString
-  link: MyString
-  imageLink: MyString
+  website: MyString
 
 two:
   title: MyString
-  link: MyString
-  imageLink: MyString
+  website: MyString
