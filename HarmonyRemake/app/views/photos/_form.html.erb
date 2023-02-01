@@ -25,7 +25,10 @@
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
   </div>
-
+  <div>
+  <%= form.label :image, style: "display: block" %>
+  <%= form.file_field :image %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
