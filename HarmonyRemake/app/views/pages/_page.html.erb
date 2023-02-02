@@ -1,37 +1,18 @@
-<div id="<%= dom_id page %>">
-  <p>
-    <strong>Title:</strong>
-    <%= page.title %>
-  </p>
+<div id="<%= dom_id page %>" class="container bg-light topPadding pb-2">
 
-  <p>
-    <strong>Section:</strong>
-    <%= page.section_id %>
-  </p>
 
-  <p>
-    <strong>Position:</strong>
-    <%= page.position %>
-  </p>
 
-  <p>
-    <strong>Page type:</strong>
-    <%= page.page_type %>
-  </p>
 
-  <p>
-    <strong>Destination:</strong>
-    <%= page.destination %>
-  </p>
+<header class="masthead bg-light text-center">
+  <div class="container d-flex align-items-center flex-column">
+    
+  	<h1 class="masthead-heading text-uppercase mb-0">Harmony Club of Worcester</h1>
+  </div>
+  
+  <hr>
+  <p class="fs-6 fw-bold"><%= page.content %></p>
 
-  <p>
-    <strong>Visible:</strong>
-    <%= page.visible %>
-  </p>
 
-  <p>
-    <strong>Content:</strong>
-    <%= page.content %>
-  </p>
+</header>
 
-</div>
+    </div>

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'dev/devTools'
+  get 'basic_pages/Home'
+  namespace :web do
+    get 'events/calendar'
+    get 'events/show'
+  end
+
 
 
   resources :sponsors
@@ -11,5 +18,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-   root "pages#index"
+   root "basic_pages#Home"
 end

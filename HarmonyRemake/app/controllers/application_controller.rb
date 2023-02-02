@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
           user_params.permit({ roles: [] }, :email, :password, :password_confirmation)
         end
       end
+
+      
+        @sections = Section.all
+    
+
 end

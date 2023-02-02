@@ -13,10 +13,12 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @sections = Section.all
   end
 
   # GET /pages/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /pages or /pages.json
