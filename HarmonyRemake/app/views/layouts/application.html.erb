@@ -8,54 +8,53 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    
     <%= favicon_link_tag asset_path('https://harmonyclubofworcester.org/assets/hcwLogo-b78312cdba5ec1b95f3c1ea372c49ae8bbc2f1940f53cfc3acda2312efacbc58.png') %>
   </head>
 
   <body class = "bg-primary">
    
-  <nav class="navbar navbar-expand-lg bg-danger position-sticky top-0">
+  <nav class="navbar  bg-danger position-sticky top-0">
   <div class="container-fluid">
-    <img src="https://harmonyclubofworcester.org/assets/hcwLogo-b78312cdba5ec1b95f3c1ea372c49ae8bbc2f1940f53cfc3acda2312efacbc58.png"  width="60" height="48" class="d-inline-block align-text-top">
+    <img src="https://harmonyclubofworcester.org/assets/hcwLogo-b78312cdba5ec1b95f3c1ea372c49ae8bbc2f1940f53cfc3acda2312efacbc58.png"  width="60" height="48" class="d-inline-block align-text-start">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNav">
-      <ul class="navbar-nav ">
+      <ul class="navbar-nav">
       <li class="nav-item">
-          <%= link_to "Home", "/basic_pages/Home", class: "nav-link " %>
+          <%= link_to "Home", "/basic_pages/Home", class: "nav-link text-light" %>
         </li>
 
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Admin Tools", 'dev/devTools', class: "nav-link" %>
+          <%= link_to "Admin Tools", dev_devTools_path, class: "nav-link text-light" %>
         </li>
         <%end%>
         <li class="nav-item">
-          <%= link_to "Sponsors", sponsors_path, class: "nav-link" %>
+          <%= link_to "Sponsors", sponsors_path, class: "nav-link text-light" %>
         </li>
         
          <li class="nav-item">
-          <%= link_to "Photos", photos_path, class: "nav-link " %>
+          <%= link_to "Photos", photos_path, class: "nav-link text-light " %>
         </li>
          <li class="nav-item">
-          <%= link_to "Albums", albums_path, class: "nav-link " %>
+          <%= link_to "Albums", albums_path, class: "nav-link text-light" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Calendar", web_events_calendar_path, class: "nav-link " %>
+          <%= link_to "Calendar", web_events_calendar_path, class: "nav-link text-light" %>
         </li>
         
         <% Section.all.each do |section| %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
          <%= section.title%>
             
           </a>
           
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu ">
             <% Page.all.each do |page| %>
             <% if page.section_id == section.id %>
-            <li><%= link_to page.title, page,  class: "dropdown-item" %></li>
+            <li><%= link_to page.title, page,  class: "dropdown-item " %></li>
             <li><hr class="dropdown-divider"></li>
             <%end%>
            <% end%>
@@ -64,7 +63,11 @@
         <% end %>
         
         <li class="nav-item ">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link " %>
+          <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-light" %>
+          <%else%>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link text-light" %>
+          <%end%>
         </li>
         
       </ul>
@@ -105,94 +108,30 @@
 
 
 
-   <div class = "bg-light container vh-100 mb-5">
+   <div class = "bg-light container vh-100 ">
     <%= yield %>
  </div>
- <div class="bg-danger text-light">
-      <div class="container">
-          <div class="text-center border-bottom border-light p-1">
-            <a class="text-light text-decoration-none" href="/">Harmony Club of Worcester | 2022</a>
-          </div>
-          <div class="row justify-content-center pt-1">
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Golf Tournament</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">About Us</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                      </li><li class="dropdownBoxes"><a class="footer-link" href="/web/site/club-officers">Club Officers</a></li>
-                
-                <li>
-                      </li><li class="dropdownBoxes"><a class="footer-link" href="/web/site/our-history">Our History</a></li>
-                
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Meeting Agendas  </h6>
-              <ul class="d-inline footer-list">
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Events</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                    <a class="footer-link" href="/web/events/index">Calendar</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Kids Christmas Party</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Sponsors</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                    <a class="footer-link" href="/web/sponsors/index">Sponsors</a>
-                </li>
-                <li>
-                      </li><li class="dropdownBoxes"><a class="footer-link" href="/web/site/91dd4bb2-53c3-4bc1-a60e-5f4786186339">SPECIAL THANKS</a></li>
-                
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              <h6 class="d-inline">Scholarship</h6>
-              <ul class="d-inline footer-list">
-                <li>
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
-              
-              
-              </ul>
-            </div>
-          </div>
-      </div>
-    </div>
+ <div class= "container-fluid bg-danger text-light p-5">
+<div class= "row">
+    <% if user_signed_in? %>
+ <div class = "col-lg-2 text-center">
+  <%= link_to "Admin Tools", 'dev/devTools', class: "nav-link" %>
+  </div>
+  <%end%>
+  <div class = "col-lg-2 text-center">
+  <%= link_to "Sponsors", sponsors_path, class: "nav-link" %>
+  </div>
+  <div class = "col-lg-2 text-center">
+  <%= link_to "Albums", albums_path, class: "nav-link " %>
+  </div>
+  <div class = "col-lg-2 text-center">
+  <%= link_to "Photos", photos_path, class: "nav-link " %>
+  </div>
+  <div class = "col-lg-2 text-center">
+  <%= link_to "Calendar", web_events_calendar_path, class: "nav-link " %>
+  </div>
+
+</div>
+ </div>
   </body>
 </html>
