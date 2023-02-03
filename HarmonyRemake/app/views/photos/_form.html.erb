@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :album_id, style: "display: block" %>
-    <%= form.number_field :album_id %>
+    <%= collection_select(:photo, :album_id, @albums, :id, :title, {:prompt => false}) %>
   </div>
 
   <div>

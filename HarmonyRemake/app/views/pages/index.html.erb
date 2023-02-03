@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
+<% if user_signed_in? %>
 <%= link_to "New page", new_page_path %>
+<%end%>

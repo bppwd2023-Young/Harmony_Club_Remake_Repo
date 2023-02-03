@@ -1,11 +1,5 @@
-<div id="calendar" class="simple-calendar">
-<%= month_calendar(events: @events) do |date, events| %>
-  <%= date %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= event.title %>
-    </div>
-  <% end %>
+<div class = "container ">
+<%= month_calendar do |date| %>
+ <%= date.day %>
 <% end %>
 </div>

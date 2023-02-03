@@ -6,7 +6,7 @@
   --bs-bg-opacity: 1;
   background-color: rgb(178,34,52) !important;
 }
-
+*= require simple_calendar
 
 
 
