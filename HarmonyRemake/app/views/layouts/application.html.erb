@@ -13,11 +13,11 @@
 
   <body class = "bg-primary">
    
-  <nav class="navbar  bg-danger position-sticky top-0">
-  <div class="container-fluid">
+  <nav class="navbar  bg-danger position-sticky top-0 navbar-dark">
+  <div class="container">
     <img src="https://harmonyclubofworcester.org/assets/hcwLogo-b78312cdba5ec1b95f3c1ea372c49ae8bbc2f1940f53cfc3acda2312efacbc58.png"  width="60" height="48" class="d-inline-block align-text-start">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler bg-primary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    Menu  <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNav">
       <ul class="navbar-nav">
@@ -47,7 +47,7 @@
         <% Section.all.each do |section| %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-         <%= section.title%>
+         <%= section.title %>
             
           </a>
           
@@ -130,6 +130,25 @@
   <div class = "col-lg-2 text-center">
   <%= link_to "Calendar", web_events_calendar_path, class: "nav-link " %>
   </div>
+  <div class= "row">
+  <% Section.all.each do |section| %>
+        <div class="nav-item dropdown col-lg-1">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         <%= section.title%>
+            
+          </a>
+          
+          <ul class="dropdown-menu ">
+            <% Page.all.each do |page| %>
+            <% if page.section_id == section.id %>
+            <li><%= link_to page.title, page,  class: "dropdown-item " %></li>
+            <li><hr class="dropdown-divider"></li>
+            <%end%>
+           <% end%>
+          </ul>
+        </div>
+        <% end %>
+        </div>
 
 </div>
  </div>
