@@ -1,0 +1,4 @@
+<%# app/views/pages/create.turbo_stream.erb %>
+
+<%= turbo_stream.prepend "pages", @page %>
+<%= turbo_stream.update Page.new, "" %>

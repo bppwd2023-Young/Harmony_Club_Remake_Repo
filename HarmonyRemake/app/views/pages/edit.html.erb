@@ -1,7 +1,7 @@
 <h1>Editing page</h1>
-
+ <%= turbo_frame_tag @page do %>
 <%= render "form", page: @page %>
-
+<% end %>
 <br>
 
 <div>

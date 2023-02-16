@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   # GET /pages or /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.ordered
+    
   end
 
   # GET /pages/1 or /pages/1.json
@@ -28,10 +29,11 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         format.html { redirect_to page_url(@page), notice: "Page was successfully created." }
-        format.json { render :show, status: :created, location: @page }
+       # format.json { render :show, status: :created, location: @page }
+       format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+     #   format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +43,10 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.update(page_params)
         format.html { redirect_to page_url(@page), notice: "Page was successfully updated." }
-        format.json { render :show, status: :ok, location: @page }
+      #  format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+       # format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +57,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to pages_url, notice: "Page was successfully destroyed." }
-      format.json { head :no_content }
+      format.turbo_stream
     end
   end
 

@@ -1,3 +1,6 @@
+<div class= "container-fixed float-top">
+
+<%= turbo_frame_tag page do %>
 <div id="<%= dom_id page %>" class="container bg-light topPadding pb-2">
 
 
@@ -6,7 +9,11 @@
 <header class="masthead bg-light text-center">
   <div class="container d-flex align-items-center flex-column">
     
-  	<h1 class="masthead-heading text-uppercase mb-0">Harmony Club of Worcester</h1>
+  	<h1 class="masthead-heading text-uppercase mb-0">
+    <%= link_to page.title,
+                page_path(page),
+                data: { turbo_frame: "_top" } %>
+                </h1>
   </div>
   
   <hr>
@@ -15,4 +22,9 @@
 
 </header>
 
+  <%= link_to "Edit",
+                  edit_page_path(page),
+                  class: "btn btn--light" %>
+    </div>
+    <% end %>
     </div>

@@ -1,9 +1,12 @@
+<div class = "container">
 <h1>New page</h1>
-
+  <%= turbo_frame_tag "first_turbo_frame" do %>
 <%= render "form", page: @page %>
-
+  <% end %>
 <br>
 
 <div>
   <%= link_to "Back to pages", pages_path %>
+</div>
+
 </div>

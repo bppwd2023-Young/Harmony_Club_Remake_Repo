@@ -1,2 +1,9 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'calandarStuff/simpleCalendar';
+@import 'custom.css';
+//components
+@import 'components/_form';
+//config
+@import 'config/_reset';
+@import 'config/_variables'
