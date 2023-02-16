@@ -1,12 +1,20 @@
 <div id="<%= dom_id sponsor %>">
-  <p>
-    <strong>Title:</strong>
-    <%= sponsor.title %>
-  </p>
+<div class="card" style="width: 18rem;">
+  
+  <% if sponsor.image.attached? %>
 
-  <p>
-    <strong>Website:</strong>
-    <%= sponsor.website %>
-  </p>
+  <% image_tag sponsor.image, class:'card-img-top' %>
 
+  <% else %>
+
+  
+  <h1>Add images here</h1>
+  <% end %>
+
+  <div class="card-body">
+    <h5 class="card-title"><%= sponsor.title %></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <%= link_to sponsor.title, sponsor.website, class: "btn btn-primary" %>
+  </div>
+</div>
 </div>

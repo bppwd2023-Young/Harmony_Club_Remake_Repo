@@ -21,7 +21,7 @@ class SponsorsController < ApplicationController
 
   # POST /sponsors or /sponsors.json
   def create
-    @sponsor = Sponsor.new(sponsor_params)
+    @sponsor = Sponsor.create(sponsor_params)
 
     respond_to do |format|
       if @sponsor.save
@@ -65,6 +65,6 @@ class SponsorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sponsor_params
-      params.require(:sponsor).permit(:title, :website)
+      params.require(:sponsor).permit(:title, :website, :image)
     end
 end
